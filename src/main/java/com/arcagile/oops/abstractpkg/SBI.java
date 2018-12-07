@@ -1,6 +1,6 @@
 package com.arcagile.oops.abstractpkg;
 
-public class SBI extends Bank {
+public class SBI {
     int getRateOfInterest() {
         return 0;
     }
