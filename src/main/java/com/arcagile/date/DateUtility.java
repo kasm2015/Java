@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class DateUtility {
 
@@ -86,5 +87,17 @@ public class DateUtility {
             return Boolean.TRUE;
         }
 
+    }
+
+    public static void convertUTCToISTFormat() throws Exception {
+        DateFormat utcFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        utcFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+        Date date = utcFormat.parse("2018-12-18T11:41:19.973Z");
+
+        DateFormat istFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+        istFormat.setTimeZone(TimeZone.getTimeZone("IST"));
+
+        System.out.println(istFormat.format(date));
     }
 }
